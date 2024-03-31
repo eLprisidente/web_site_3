@@ -1,0 +1,270 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+nav {
+  max-width: 960px;
+  background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
+  margin: 0 auto;
+  border-radius: 20px 20px 150px 150px;
+  padding: 60px 0px;
+}
+
+nav ul {
+  text-align: center;
+  padding: 0px 91px;
+  border-radius: 20px 20px 150px 150px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: Black;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+nav ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 35, 122, 0.7);
+}
+
+
+#add_btn {
+  margin: 20px;
+  padding: 15px 40px;
+  border: none;
+  outline: none;
+  color: #FFF;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+}
+#add_btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+#add_btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #FF0000, #FF7300, #FFFB00, #48FF00,
+    #00FFD5, #002BFF, #FF00C8, #FF0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+#add_btn:hover::before {
+  opacity: 1;
+}
+
+#add_btn:active:after {
+  background: transparent;
+}
+
+#add_btn:active {
+  color: #000;
+  font-weight: bold;
+}
+
+
+
+
+
+:root {
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+	cursor: default;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#hi,
+:before,
+:after {
+	-ms-box-sizing: inherit;
+	-o-box-sizing: inherit;
+	box-sizing: inherit;
+}
+
+html, body {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	overflow: auto;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	-moz-overflow-scrolling: touch;
+	-ms-overflow-scrolling: touch;
+	-o-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+	-ms-overflow-style: ms-autohiding-scrollbar;
+}
+
+#page-wrap {
+	position: relative;
+	display: block;
+	clear: both;
+	background: none;
+	color: #000;
+	text-decoration: none;
+	padding: 3rem 0;
+	width: 100%;
+	height: 100%;
+}
+
+#inner-wrap {
+	position: absolute;
+	top: 3rem;
+	left: 0;
+	right: 0;
+	bottom: 3rem;
+	display: table;
+	width: 100%;
+	height: 100%;
+	min-height: 322px;
+	overflow: visible;
+}
+
+.logo {
+	position: absolute;
+	z-index: 1;
+	top: 3rem;
+	left: 2rem;
+	display: block;
+	width: 9vmax;
+	height: 9vmax;
+	min-width: 50px;
+	min-height: 50px;
+}
+
+.waves {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	min-width: 100%;
+	min-height: 70%;
+	margin: auto 0;
+}
+
+.text {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: block;
+	width: 83%;
+	height: 100%;
+	margin: auto;
+}
+
+img, svg {
+	display: block;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.group {
+  zoom: 1;
+}
+
+
+
+
+
+.credits {
+	position: relative;
+	z-index: 9;
+	font-size: 130%;
+	text-align: center;
+	width: 100%;
+	padding: 2rem 0;
+}
+
+.credits a {
+	display: inline-block;
+	color: #df1888;
+	font-family: Arial, sans-serif;
+	line-height: 1.5em;
+	text-decoration: none !important;
+	white-space: nowrap;
+	margin: 0 1.2em;
+	padding: 0.6em 0;
+	transition: 150ms;
+}
+
+.credits a:hover {
+	color: #2d71b9;
+	cursor: pointer;
+}
+
+.credits-logo {
+	fill: currentColor;
+	display: inline-block;
+	vertical-align: bottom;
+	width: 1.6em;
+	height: 1.6em;
+	margin: 0 0.5em 0 0;
+}

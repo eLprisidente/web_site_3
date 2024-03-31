@@ -3,9 +3,8 @@ from wtforms import StringField, IntegerField, BooleanField, SubmitField, FileFi
 from wtforms.validators import DataRequired
 
 
-class JobForm(FlaskForm):
+class EditForm(FlaskForm):
     post = StringField('Название', validators=[DataRequired()])
     description = StringField('Описание', validators=[DataRequired()])
-    picture = FileField('Фото', validators=[DataRequired()])
 
     submit = SubmitField('Подтвердить')
