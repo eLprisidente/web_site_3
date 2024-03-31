@@ -89,7 +89,6 @@ def add_jobs():
         jobs = Jobs(
             job=add_form.job.data,
             team_leader=add_form.team_leader.data,
-            work_size=add_form.work_size.data,
             collaborators=add_form.collaborators.data,
             is_finished=add_form.is_finished.data
         )

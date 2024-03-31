@@ -25,15 +25,6 @@
     {% endfor %}
     </p>
     <p>
-        {{ form.work_size.label }}<br>
-        {{ form.work_size(class="form-control") }}<br>
-        {% for error in form.work_size.errors %}
-    <p class="alert alert-danger" role="alert">
-        {{ error }}
-    </p>
-    {% endfor %}
-    </p>
-    <p>
         {{ form.collaborators.label }}<br>
         {{ form.collaborators(class="form-control") }}<br>
         {% for error in form.collaborators.errors %}

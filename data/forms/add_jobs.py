@@ -5,9 +5,8 @@ from wtforms.validators import DataRequired
 
 class JobForm(FlaskForm):
     job = StringField('Название', validators=[DataRequired()])
-    team_leader = IntegerField('Описание', validators=[DataRequired()])
-    work_size = StringField('Прикрепить фото / видео', validators=[DataRequired()])
-    collaborators = StringField('Collaborators', validators=[DataRequired()])
+    team_leader = StringField('Описание', validators=[DataRequired()])
+    collaborators = StringField('Точка / Место', validators=[DataRequired()])
     is_finished = BooleanField('Пост актуален?')
 
     submit = SubmitField('Подтвердить')
