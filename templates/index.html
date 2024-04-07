@@ -2,27 +2,16 @@
 
 {% block content %}
 {% if current_user.is_authenticated %}
-    <a href="add_jobs" class="btn btn-secondary">Добавить пост</a>
+    <a href="add_jobs" type="button" class="btn btn-outline-primary  btn-lg">Добавить пост</a>
 {% endif %}
-    <h1 align="center">Посты других пользователей</h1>
-    {% for job in jobs %}
-        <table class="table">
-            <tr class="table-active">
-                <td  width="600px"> Название </td>
-                <td  width="300px"> Логин пользовотеля</td>
-                <td  width="300px"> Точка / Место</td>
-                <td  width="300px"> Актуальность</td>
-            </tr>
-            <tr>
-                <td  class="table-info"> {{job.job}} </td>
-                <td  class="table-info"> {{job.user.name}} {{job.user.surname}}</td>
-                <td  class="table-info"> {{job.collaborators}}</td>
-                {% if job.is_finished %}
-                <td  class="table-info"> Актуален</td>
-                {% else %}
-                <td  class="table-danger"> Не актуален</td>
-                {% endif %}
-            </tr>
-        </table>
-    {% endfor %}
+    <h1 align="center"> * здесь будет крутое название сайта *</h1>
+    <div class="card" style="width: 25rem; height: 20rem;">
+      <img src="img/bekosha_run_feedback.png" class="card-img-top" alt="Изображение не найдено(">
+      <div class="card-body">
+        <h5 class="card-title">Отзыв о Bekosha Run</h5>
+        <p class="card-text">Классная игра! Мне зашло!</p>
+        <a href="#" class="btn btn-primary">Добавить коментарий</a>
+      </div>
+    </div>
+
 {% endblock %}
