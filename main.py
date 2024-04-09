@@ -1,9 +1,10 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, url_for
 from data import db_session
 from data.forms.LoginForm import LoginForm
 from data.forms.add_jobs import JobForm
 from data.forms.user import RegisterForm
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
+import os
 
 from data.jobs import Jobs
 from data.users import User
@@ -12,6 +13,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 login_manager = LoginManager()
 login_manager.init_app(app)
+app.config['UPLOAD_FOLDER'] = '/static/img'
 
 db_session.global_init("db/mars.db")
 
@@ -42,8 +44,6 @@ def reqister():
             name=form.name.data,
             email=form.email.data,
             age=form.age.data,
-            speciality=form.speciality.data,
-            address=form.address.data,
         )
         user.set_password(form.password.data)
         db_sess.add(user)
@@ -84,14 +84,21 @@ def logout():
 @login_required
 def add_jobs():
     add_form = JobForm()
+    print(add_form.picture)
+    print(add_form.picture.raw_data)
     if add_form.validate_on_submit():
         db_sess = db_session.create_session()
         jobs = Jobs(
-            job=add_form.job.data,
-            team_leader=add_form.team_leader.data,
-            collaborators=add_form.collaborators.data,
-            is_finished=add_form.is_finished.data
+            post=add_form.post.data,
+            author=add_form.author.data,
+            description=add_form.description.data,
+            picture=add_form.picture.data.filename
         )
+        filename = add_form.picture.data.filename
+
+        add_form.picture.data.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        redirect(url_for('download_file', name=filename))
+
         db_sess.add(jobs)
         db_sess.commit()
         return redirect('/')

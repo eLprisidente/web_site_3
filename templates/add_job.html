@@ -7,33 +7,41 @@
     {{ form.hidden_tag() }}
     {{ form.csrf_token }}
     <p>
-        {{ form.job.label }}<br>
-        {{ form.job(class="form-control") }}<br>
-        {% for error in form.job.errors %}
+        {{ form.post.label }}<br>
+        {{ form.post(class="form-control") }}<br>
+        {% for error in form.post.errors %}
     <p class="alert alert-danger" role="alert">
         {{ error }}
     </p>
     {% endfor %}
     </p>
     <p>
-        {{ form.team_leader.label }}<br>
-        {{ form.team_leader(class="form-control") }}<br>
-        {% for error in form.team_leader.errors %}
+        {{ form.author.label }}<br>
+        {{ form.author(class="form-control") }}<br>
+        {% for error in form.author.errors %}
     <p class="alert alert-danger" role="alert">
         {{ error }}
     </p>
     {% endfor %}
     </p>
     <p>
-        {{ form.collaborators.label }}<br>
-        {{ form.collaborators(class="form-control") }}<br>
-        {% for error in form.collaborators.errors %}
+        {{ form.description.label }}<br>
+        {{ form.description(class="form-control") }}<br>
+        {% for error in form.description.errors %}
     <p class="alert alert-danger" role="alert">
         {{ error }}
     </p>
     {% endfor %}
     </p>
-    <p>{{ form.is_finished() }} {{ form.is_finished.label }}</p>
+    <p>
+        {{ form.picture.label }}<br>
+        {{ form.picture(type="file", class="form-control", accept=".png,.jpg,.jpeg,.gif") }}<br>
+        {% for error in form.picture.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
     <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
     {{message}}
 </form>
