@@ -42,8 +42,6 @@ def reqister():
             name=form.name.data,
             email=form.email.data,
             age=form.age.data,
-            speciality=form.speciality.data,
-            address=form.address.data,
         )
         user.set_password(form.password.data)
         db_sess.add(user)
@@ -87,10 +85,10 @@ def add_jobs():
     if add_form.validate_on_submit():
         db_sess = db_session.create_session()
         jobs = Jobs(
-            job=add_form.job.data,
-            team_leader=add_form.team_leader.data,
-            collaborators=add_form.collaborators.data,
-            is_finished=add_form.is_finished.data
+            post=add_form.post.data,
+            author=add_form.author.data,
+            description=add_form.description.data,
+            picture=add_form.picture.data
         )
         db_sess.add(jobs)
         db_sess.commit()
