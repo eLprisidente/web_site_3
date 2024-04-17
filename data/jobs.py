@@ -10,9 +10,9 @@ class Jobs(SqlAlchemyBase):
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
     post = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    author = sqlalchemy.Column(sqlalchemy.Integer,
-                               sqlalchemy.ForeignKey("users.id"))
+    author = sqlalchemy.Column(sqlalchemy.String,
+                               sqlalchemy.ForeignKey("users.name"))
     description = sqlalchemy.Column(sqlalchemy.String, nullable=True)
-    picture = sqlalchemy.Column(sqlalchemy.BLOB, nullable=True)
+    picture = sqlalchemy.Column(sqlalchemy.String, nullable=True)
 
     user = orm.relationship('User')
